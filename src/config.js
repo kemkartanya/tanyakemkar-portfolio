@@ -1,26 +1,18 @@
 module.exports = {
-  email: 'brittany.chiang@gmail.com',
+  email: 'tanyakemkar@gmail.com',
 
   socialMedia: [
     {
       name: 'GitHub',
-      url: 'https://github.com/bchiang7',
-    },
-    {
-      name: 'Instagram',
-      url: 'https://www.instagram.com/bchiang7',
+      url: 'https://github.com/kemkartanya',
     },
     {
       name: 'Twitter',
-      url: 'https://twitter.com/bchiang7',
+      url: 'https://twitter.com/kemkartanya',
     },
     {
       name: 'Linkedin',
-      url: 'https://www.linkedin.com/in/bchiang7',
-    },
-    {
-      name: 'Codepen',
-      url: 'https://codepen.io/bchiang7',
+      url: 'https://www.linkedin.com/in/tanyakemkar',
     },
   ],
 
@@ -38,13 +30,17 @@ module.exports = {
       url: '/#projects',
     },
     {
+      name: 'Achievements',
+      url: '/#achievements',
+    },
+    {
       name: 'Contact',
       url: '/#contact',
     },
   ],
 
   colors: {
-    green: '#64ffda',
+    green: '#4688ff',
     navy: '#0a192f',
     darkNavy: '#020c1b',
   },

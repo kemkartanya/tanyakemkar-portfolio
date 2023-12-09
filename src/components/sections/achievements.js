@@ -41,7 +41,7 @@ const StyledProject = styled.li`
 
   &:nth-of-type(odd) {
     .project-content {
-      grid-column: 7 / -1;
+      grid-column: 7 / -2;
       text-align: right;
 
       @media (max-width: 1080px) {
@@ -83,7 +83,7 @@ const StyledProject = styled.li`
       }
     }
     .project-image {
-      grid-column: 1 / 8;
+      grid-column: 2 / 7;
 
       @media (max-width: 768px) {
         grid-column: 1 / -1;
@@ -93,7 +93,7 @@ const StyledProject = styled.li`
 
   .project-content {
     position: relative;
-    grid-column: 1 / 7;
+    grid-column: 2 / 7;
     grid-row: 1 / -1;
 
     @media (max-width: 1080px) {
@@ -242,7 +242,7 @@ const StyledProject = styled.li`
 
   .project-image {
     ${({ theme }) => theme.mixins.boxShadow};
-    grid-column: 6 / -1;
+    grid-column: 7 / -2;
     grid-row: 1 / -1;
     position: relative;
     z-index: 1;
@@ -303,11 +303,11 @@ const StyledProject = styled.li`
   }
 `;
 
-const Featured = () => {
+const Achievements = () => {
   const data = useStaticQuery(graphql`
     {
       featured: allMarkdownRemark(
-        filter: { fileAbsolutePath: { regex: "/content/featured/" } }
+        filter: { fileAbsolutePath: { regex: "/content/achievements/" } }
         sort: { fields: [frontmatter___date], order: ASC }
       ) {
         edges {
@@ -319,9 +319,6 @@ const Featured = () => {
                   gatsbyImageData(width: 700, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
                 }
               }
-              tech
-              github
-              external
             }
             html
           }
@@ -345,9 +342,9 @@ const Featured = () => {
   }, []);
 
   return (
-    <section id="projects">
+    <section id="achievements">
       <h2 className="numbered-heading" ref={revealTitle}>
-        Some Things I’ve Built
+        Achievements
       </h2>
 
       <StyledProjectsGrid>
@@ -361,8 +358,6 @@ const Featured = () => {
               <StyledProject key={i} ref={el => (revealProjects.current[i] = el)}>
                 <div className="project-content">
                   <div>
-                    <p className="project-overline">Featured Project</p>
-
                     <h3 className="project-title">
                       <a href={external}>{title}</a>
                     </h3>
@@ -372,7 +367,7 @@ const Featured = () => {
                       dangerouslySetInnerHTML={{ __html: html }}
                     />
 
-                    {tech.length && (
+                    {tech && tech.length && (
                       <ul className="project-tech-list">
                         {tech.map((tech, i) => (
                           <li key={i}>{tech}</li>
@@ -413,4 +408,4 @@ const Featured = () => {
   );
 };
 
-export default Featured;
+export default Achievements;
